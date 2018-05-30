@@ -8,12 +8,20 @@ const Countries = function (url) {
 Countries.prototype.getData = function () {
   const request = new Request(this.url);
   request.get()
-  .then((countriesData) => {
-    // console.log(countriesData);
-    PubSub.publish("Countries:data-loaded", countriesData);
+    .then((countriesData) => {
+    console.log(countriesData);
+      PubSub.publish('Countries:data-loaded', countriesData);
   })
   .catch(console.error);
 };
+
+// Countries.prototype.getData = function () {
+//   const request = new Request('https://restcountries.eu/rest/v2/all');
+//   request.get((data) => {
+//     console.log('this comes from the model', data);
+//     PubSub.publish('Countries:data-loaded', data);
+//   })
+// };
 
 Countries.prototype.bindEvents = function () {
   PubSub.subscribe('CountriesFormView:country-submitted', (evt) => {

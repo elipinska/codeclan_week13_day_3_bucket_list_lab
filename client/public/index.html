@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8">
     <title>The Bucket List</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
     <script src="js/bundle.js"></script>
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
     <h1>The Bucket List</h1>
     <form id="countries-form" action="index.html" method="post">
-      <label for="country-list">Countries:</label>
+      <label for="country-list">Choose countries:</label>
       <select id="country-list" name="country-list">
-    <option disabled selected>Choose country to add</option>
-    <option value="Brazil">Brazil</option>
-    <option value="Canada">Canada</option>
-    <option value="Poland">Poland</option>
-    <option value="Scotland">Scotland</option>
+    <option disabled selected></option>
   </select>
-      <input type="submit" value="Save" id="save"/>
+      <input type="submit" value="Save" id="save" class="save"/>
     </form>
 
     <div id="country-list-view">

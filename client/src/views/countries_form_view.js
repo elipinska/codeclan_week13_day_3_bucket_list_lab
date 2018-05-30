@@ -8,6 +8,8 @@ CountriesFormView.prototype.bindEvents = function () {
   this.element.addEventListener('submit', (evt) => {
     this.handleSubmit(evt);
   });
+
+  this.populateDropdown();
 };
 
 CountriesFormView.prototype.handleSubmit = function (evt) {
@@ -25,5 +27,23 @@ CountriesFormView.prototype.createCountry = function (element) {
   }
   return newCountry;
 };
+
+CountriesFormView.prototype.populateDropdown = function () {
+  PubSub.subscribe('Countries:data-loaded', (evt) => {
+    this.createDropdown(evt.detail);
+  });
+};
+
+CountriesFormView.prototype.createDropdown = function(countriesData) {
+  const selectElement = document.querySelector('select#country-list')
+
+  countriesData.forEach((country) => {
+    const newOption = document.createElement('option');
+    newOption.textContent = country.name;
+    newOption.value = country.name;
+    selectElement.appendChild(newOption);
+  });
+
+}
 
 module.exports = CountriesFormView;
