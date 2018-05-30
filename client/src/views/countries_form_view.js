@@ -29,7 +29,7 @@ CountriesFormView.prototype.createCountry = function (element) {
 };
 
 CountriesFormView.prototype.populateDropdown = function () {
-  PubSub.subscribe('Countries:data-loaded', (evt) => {
+  PubSub.subscribe('Countries:dropdown-api-loaded', (evt) => {
     this.createDropdown(evt.detail);
   });
 };

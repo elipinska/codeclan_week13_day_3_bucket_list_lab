@@ -16,6 +16,7 @@ const url = 'http://localhost:3000/api/countriesNames';
 const countries = new Countries(url);
 countries.bindEvents();
 countries.getData();
+countries.getDataForDropdown();
 
 
 
