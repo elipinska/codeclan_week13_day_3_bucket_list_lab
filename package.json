@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server:dev": "nodemon server/server.js",
+    "build": "webpack -w"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +15,10 @@
   "devDependencies": {
     "webpack": "^4.10.2",
     "webpack-cli": "^2.1.4"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.1.0-beta4",
+    "nodemon": "^1.17.5"
   }
 }

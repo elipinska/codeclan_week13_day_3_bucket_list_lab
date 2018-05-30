@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The Bucket List</title>
+    <script src="js/bundle.js"></script>
+  </head>
+  <body>
+    <h1>The Bucket List</h1>
+    <form id="countries-form" action="index.html" method="post">
+      <label for="country-list">Countries:</label>
+      <select id="country-list" name="country-list">
+    <option disabled selected>Choose country to add</option>
+    <option value="Brazil">Brazil</option>
+    <option value="Canada">Canada</option>
+    <option value="Poland">Poland</option>
+    <option value="Scotland">Scotland</option>
+  </select>
+      <input type="submit" value="Save" id="save"/>
+    </form>
+
+    <div id="country-list-view">
+
+    </div>
+  </body>
+</html>
