@@ -18,29 +18,29 @@ const countriesRouter = function (countriesNamesCollection) {
   //     .then((docs) => res.json(docs));
   // });
   //
-  // router.post('/', (req, res) => {
-  //   const newSighting = req.body.sighting;
-  //   sightingsCollection
-  //     .insertOne(newSighting)
-  //     .then(() => {
-  //       sightingsCollection
-  //         .find()
-  //         .toArray()
-  //         .then((docs) => res.json(docs));
-  //     });
-  // });
-  //
-  // router.delete('/:id', (req, res) => {
-  //   const id = req.params.id;
-  //   sightingsCollection
-  //     .deleteOne({ _id: ObjectID(id) })
-  //     .then(() => {
-  //       sightingsCollection
-  //         .find()
-  //         .toArray()
-  //         .then((docs) => res.json(docs));
-  //     });
-  // });
+  router.post('/', (req, res) => {
+    const newCountry = req.body.country;
+    countriesNamesCollection
+      .insertOne(newCountry)
+      .then(() => {
+        countriesNamesCollection
+          .find()
+          .toArray()
+          .then((docs) => res.json(docs));
+      });
+  });
+
+  router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    countriesNamesCollection
+      .deleteOne({ _id: ObjectID(id) })
+      .then(() => {
+        countriesNamesCollection
+          .find()
+          .toArray()
+          .then((docs) => res.json(docs));
+      });
+  });
   //
   // router.put('/:id', (req, res) => {
   //   const id = req.params.id;

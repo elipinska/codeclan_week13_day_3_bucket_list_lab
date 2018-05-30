@@ -8,12 +8,37 @@ const Countries = function (url) {
 Countries.prototype.getData = function () {
   const request = new Request(this.url);
   request.get()
-    .then((countriesData) => {
-      // console.log(countriesData);
-      PubSub.publish("Countries:data-loaded", countriesData);
-    })
-    .catch(console.error);
+  .then((countriesData) => {
+    // console.log(countriesData);
+    PubSub.publish("Countries:data-loaded", countriesData);
+  })
+  .catch(console.error);
 };
 
+Countries.prototype.bindEvents = function () {
+  PubSub.subscribe('CountriesFormView:country-submitted', (evt) => {
+    this.postCountry(evt.detail);
+  });
+
+  this.deleteCountry();
+};
+
+Countries.prototype.postCountry = function (country) {
+  const request = new Request(this.url);
+  request.post(country)
+  .then((countries) => {
+      this.getData();
+  })
+};
+
+Countries.prototype.deleteCountry = function () {
+  PubSub.subscribe('CountryView:delete-country', (evt) => {
+    const request = new Request(this.url);
+    request.delete(evt.detail)
+      .then((countriesData) =>  {
+        this.getData();
+      });
+  })
+}
 
 module.exports = Countries;

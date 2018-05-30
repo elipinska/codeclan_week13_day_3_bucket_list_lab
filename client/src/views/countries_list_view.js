@@ -7,7 +7,6 @@ const CountriesListView = function(element) {
 
 CountriesListView.prototype.bindEvents = function () {
   PubSub.subscribe('Countries:data-loaded', (evt) => {
-    console.log(evt.detail);
     this.render(evt.detail);
   })
 };

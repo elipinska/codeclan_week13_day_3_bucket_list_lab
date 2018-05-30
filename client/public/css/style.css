@@ -1,0 +1,12 @@
+body {
+  background-color: AliceBlue;
+}
+
+#country-list-view {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#country {
+  padding: 10px;
+}
